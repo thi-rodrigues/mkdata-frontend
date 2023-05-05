@@ -1,0 +1,21 @@
+.messages {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.pButton {
+    margin-top: 20px;
+}
+
+.p-button-success {
+    margin-right: 20px;
+}
+
+.mat-mdc-form-field {
+  margin-right: 4px;
+}
+
+.mat-tree {
+  background: none;
+}

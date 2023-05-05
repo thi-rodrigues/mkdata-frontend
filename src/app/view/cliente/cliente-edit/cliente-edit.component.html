@@ -1,0 +1,34 @@
+<span class="p-float-label p-inputtext-sm">
+    <input id="float-input" type="text" pInputText [(ngModel)]="cliente.nome" > 
+    <label for="float-input">Nome</label>
+</span>
+<br><br>
+
+<p-dropdown [options]="tipoPessoa" [(ngModel)]="cliente.tipo" optionLabel="tipoPessoa" optionValue="tipoPessoa"></p-dropdown>
+<br><br>
+
+<br><br>
+<span class="p-float-label p-inputtext-sm">
+    <input id="float-input" type="text" pInputText [(ngModel)]="cliente.cpfCnpj" > 
+    <label for="float-input">CPF/CNPJ</label>
+</span>
+<br><br>
+<span class="p-float-label p-inputtext-sm">
+    <input id="float-input" type="text" pInputText [(ngModel)]="cliente.rgIe" > 
+    <label for="float-input">RG</label>
+</span>
+<br><br>
+<span class="p-float-label p-inputtext-sm">
+    <p-inputMask mask="(99) 99999-9999" [(ngModel)]="cliente.telefone"></p-inputMask>
+    <label for="float-input">TELEFONE</label>
+</span>
+<br><br>
+
+<div class="pButton">
+    <button pButton pRipple type="submit" icon="pi pi-check" class="p-button-success" label="Atualizar" (click)="atualizaraCliente()" [disabled]="false"></button> 
+    <button pButton pRipple type="button" icon="pi pi-arrow-left" class="p-button-rounded p-button-warning" label="Voltar" routerLink="/clientes"></button>
+</div>
+
+<div class="messages">
+    <p-messages [(value)]="msgs"></p-messages>
+</div>

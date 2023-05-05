@@ -1,0 +1,21 @@
+<mat-sidenav-container class="container" style="background-color: #fff;">
+    <mat-sidenav class="sidenav" mode="side" opened="true" fixedInViewport="true" fixedTopGap="64">
+       
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/inicio" (click)="clicou('home')">
+                <i class="material-icons"> home </i>
+                <span>Home</span>
+            </a>
+            <a mat-list-item routerLink="/clientes" (click)="clicou('cadastro')"> 
+                <i class="material-icons"> list </i>
+                <span> Clientes </span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content">
+        <app-home2 *ngIf="home"></app-home2>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

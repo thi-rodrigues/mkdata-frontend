@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .example-icon {
+      display: flex;
+      align-items: center;
+  
+    }
+  
+  span {
+    padding-left: 5px;
+  }

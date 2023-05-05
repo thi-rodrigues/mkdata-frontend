@@ -1,0 +1,77 @@
+<div>
+    <span class="p-float-label p-inputtext-sm">
+        <input id="float-input" type="text" pInputText [(ngModel)]="cliente.nome" > 
+        <label for="float-input">Nome</label>
+    </span>
+    <br><br>
+    
+    <p-dropdown [options]="tipoPessoa" [(ngModel)]="cliente.tipo" optionLabel="tipoPessoa" optionValue="tipoPessoa" (onChange)="tipoPessoaEvento($event)"></p-dropdown>
+    <br><br>
+
+    <span class="p-float-label p-inputtext-sm">
+        <p-inputMask [mask]="mascaraCpfCnpj" id="float-input" [(ngModel)]="cliente.cpfCnpj" [disabled]="tipoPessoaLabelBolean"></p-inputMask>
+        <label for="float-input">{{tipoPessoaLabel}}</label>
+    </span>
+    <br><br>
+
+    <span class="p-float-label p-inputtext-sm">
+        <p-inputNumber id="float-input" type="text" [(ngModel)]="cliente.rgIe" [disabled]="tipoPessoaLabelBolean" mask="mascara"></p-inputNumber>
+        <label for="float-input">{{tipoIdentificacao}}</label>
+    </span>
+    <br><br>
+
+    <span class="p-float-label p-inputtext-sm">
+        <p-inputMask mask="(99) 99999-9999" [(ngModel)]="cliente.telefone"></p-inputMask>
+        <label for="float-input">TELEFONE</label>
+    </span>
+
+    <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+        <mat-tree-node *matTreeNodeDef="let node"  >
+            <mat-checkbox class="checklist-leaf-node"
+                        [checked]="checklistSelection.isSelected(node)" (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+        </mat-tree-node>
+      
+        <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" >
+            <p-inputMask mask="(99) 99999-9999" #itemValue></p-inputMask>
+            
+            <p-button mat-button (click)="saveNode(node, itemValue.value)">Add</p-button>
+        </mat-tree-node>
+      
+        <mat-tree-node *matTreeNodeDef="let node; when: hasChild" >
+          <p-button icon="pi pi-plus" (click)="addNewItem(node)"></p-button>
+        </mat-tree-node>
+      </mat-tree>
+
+
+    <br><br>
+
+    <div class="pButton">
+        <button pButton pRipple type="submit" icon="pi pi-check" class="p-button-success" label="Salvar" (click)="criarCliente()" [disabled]="false"></button> 
+        <button pButton pRipple type="button" icon="pi pi-arrow-left" class="p-button-rounded p-button-warning" label="Voltar" routerLink="/clientes"></button>
+    </div>
+
+    <div class="messages">
+        <p-messages [(value)]="msgs"></p-messages>
+    </div>
+</div>
+
+
+<!--  -->
+<!-- <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node"  >
+        <mat-checkbox class="checklist-leaf-node"
+                    [checked]="checklistSelection.isSelected(node)"
+                    (change)="todoLeafItemSelectionToggle(node)">{{node.item}}</mat-checkbox>
+    </mat-tree-node>
+  
+    <mat-tree-node *matTreeNodeDef="let node; when: hasNoContent" >
+        <p-inputMask mask="(99) 99999-9999" [(ngModel)]="cliente.telefone" #itemValue></p-inputMask>
+        <p-button mat-button (click)="saveNode(node, itemValue.value)">Add</p-button>
+    </mat-tree-node>
+  
+    <mat-tree-node *matTreeNodeDef="let node; when: hasChild" >
+      <p-button icon="pi pi-plus" (click)="addNewItem(node)"></p-button>
+    </mat-tree-node>
+  </mat-tree> -->
+  
+  
